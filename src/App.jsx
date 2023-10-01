@@ -1,26 +1,25 @@
 import './App.css'
-import { Home } from './components/Home'
-import { Login } from './components/Login'
+import { Home } from './pages/Home'
+import { Login } from './pages/Login'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Logout } from './components/Logout'
-import { Notifications } from './components/Notifications'
-import { Receipts } from './components/Receipts'
-import { Profile } from './components/Profile'
+import { Logout } from './pages/Logout'
+import { Notifications } from './pages/Notifications'
+import { Receipts } from './pages/Receipts'
+import { Profile } from './pages/Profile'
 
 function App() {
-  
+
 
   return (
     <>
-      <Login />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/notifications" element={<Notifications/>} />
-          <Route path="/receipts" element={<Receipts/>} />
-          <Route path="/logout" element={<Logout/>} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/receipts" element={<Receipts />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
     </>
