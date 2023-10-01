@@ -1,7 +1,14 @@
 import React from 'react'
+import { Sidebar } from './Sidebar'
+import { Header } from './Header'
+import { Footer } from './Footer'
 
 export const Receipts = () => {
   return (
-    <div>Receipts</div>
+    <>
+        <Sidebar/>
+        <Header/>
+        <Footer/>
+    </>
   )
 }
