@@ -2,6 +2,8 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+      <h4>@ D&D Building by Harrison Itotia</h4>
+    </>
   )
 }
