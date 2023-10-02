@@ -4,7 +4,7 @@ import { Login } from './pages/Login'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Logout } from './pages/Logout'
 import { Notifications } from './pages/Notifications'
-import { Receipts } from './pages/Receipts'
+import { Payments } from './pages/Payments'
 import { Profile } from './pages/Profile'
 
 function App() {
@@ -18,7 +18,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/receipts" element={<Receipts />} />
+          <Route path="/payments" element={<Payments />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/payment" element={<Logout />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
