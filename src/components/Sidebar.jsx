@@ -4,9 +4,12 @@ export const Sidebar = () => {
   return (
     <div className=''>
       <div className="">
-        <img src="" alt="logo" />
-      </div>
+        <a href="/">
+          <img src="src\assets\movieflix-logo.png" alt="logo" />
+        </a>
 
+      </div>
+      <hr />
       <div className="mt-20">
         <ul className='divide-y divide-solid'>
           <a href="/profile" className='block p-10'>Profile</a>
