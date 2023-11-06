@@ -26,7 +26,7 @@ export const Header = () => {
         </NavLink>
 
         <NavLink
-          to="/profile"
+          to="/"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
