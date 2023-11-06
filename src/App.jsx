@@ -15,8 +15,8 @@ function App() {
     <SidebarContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/payments" element={<Payments />} />
