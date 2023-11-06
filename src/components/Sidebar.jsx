@@ -1,23 +1,31 @@
-import React from 'react'
+import React,{ useContext } from "react"
+import SidebarContext from "../sidebarContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell, faCreditCard, faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const Sidebar = () => {
-  return (
-    <div className=''>
-      <div className="">
-        <a href="/">
-          <img src="src\assets\movieflix-logo.png" alt="logo" />
-        </a>
+  const { isSidebarOpen } = useContext(SidebarContext);
 
-      </div>
-      <hr />
-      <div className="mt-20">
-        <ul className='divide-y divide-solid'>
-          <a href="/profile" className='block p-10'>Profile</a>
-          <a href="/payments" className='block p-10'>Payments</a>
-          <a href="/notifications" className='block p-10'>Notifications</a>
-          <a href="/logout" className='block p-10'>Logout</a>
-        </ul>
-      </div>
+  return (
+    <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+      <ul className='divide-y divide-solid'>
+        <a href="/profile" className='block p-10'>
+          <FontAwesomeIcon icon={faUser} />
+          {isSidebarOpen && ' Profile'}
+        </a>
+        <a href="/payments" className='block p-10'>
+          <FontAwesomeIcon icon={faCreditCard} />
+          {isSidebarOpen && ' Payments'}
+        </a>
+        <a href="/notifications" className='block p-10'>
+          <FontAwesomeIcon icon={faBell} />
+          {isSidebarOpen && ' Notifications'}
+        </a>
+        <a href="/logout" className='block p-10'>
+          <FontAwesomeIcon icon={faSignOutAlt} />
+          {isSidebarOpen && ' Logout'}
+        </a>
+      </ul>
     </div>
   )
 }
