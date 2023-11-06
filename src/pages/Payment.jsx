@@ -2,6 +2,11 @@ import React from 'react'
 
 export const Payment = () => {
   return (
-    <div>How to pay</div>
+    <>
+      <h1>How to pay</h1>
+      
+    </>
+    
+    
   )
 }

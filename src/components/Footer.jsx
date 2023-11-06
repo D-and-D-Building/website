@@ -1,9 +1,7 @@
-import React from 'react'
-
 export const Footer = () => {
   return (
-    <div className='bg-gray-400'>
-      <h4>@ D&D Building by Harrison Itotia</h4>
+    <div className='bg-gray-400 p-10'>
+      <h4>D&D Building <span>Built by Harrison Itotia</span></h4>
     </div>
   )
 }
