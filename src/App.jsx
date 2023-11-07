@@ -8,6 +8,7 @@ import { Payments } from './pages/Payments'
 import { Profile } from './pages/Profile'
 import { useState } from 'react';
 import { LandingPage } from './pages/LandingPage';
+import { Notification } from './pages/Notification';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -21,11 +22,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/notifications/:id" element={<Notification />} />
           <Route path="/payments" element={<Payments />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/payment" element={<Logout />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
