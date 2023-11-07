@@ -6,7 +6,7 @@ export const Layout = ({ children }) => {
         <div className="flex-1 flex flex-col">
             <Header />
             <div className="flex">
-                <div className="min-h-screen bg-gray-600 max-w-[250px] relative">
+                <div className="min-h-screen bg-indigo-600 max-w-[250px] relative">
                     <Sidebar />
                 </div>
 

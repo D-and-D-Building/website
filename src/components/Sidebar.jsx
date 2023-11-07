@@ -1,4 +1,4 @@
-import React,{ useContext } from "react"
+import { useContext } from "react"
 import SidebarContext from "../sidebarContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCreditCard, faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";

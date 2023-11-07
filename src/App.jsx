@@ -7,6 +7,7 @@ import { Notifications } from './pages/Notifications'
 import { Payments } from './pages/Payments'
 import { Profile } from './pages/Profile'
 import { useState } from 'react';
+import { LandingPage } from './pages/LandingPage';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -15,8 +16,9 @@ function App() {
     <SidebarContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
       <Router>
         <Routes>
+        <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/payments" element={<Payments />} />

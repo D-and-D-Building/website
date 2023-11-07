@@ -8,7 +8,7 @@ export const Header = () => {
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 
   return (
-    <div className='flex justify-between bg-gray-400 p-10'>
+    <div className='flex justify-between  bg-indigo-400 p-10'>
       <div className="flex">
         <FontAwesomeIcon icon={faBars} onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
         <h1 className="ml-5">D&D Building</h1>
@@ -26,7 +26,7 @@ export const Header = () => {
         </NavLink>
 
         <NavLink
-          to="/"
+          to="/login"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
