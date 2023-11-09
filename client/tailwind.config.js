@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        sidebar: "300px auto",
+        "sidebar-collapsed": "64px auto",
+      }
+    },
   },
   plugins: [],
 }
