@@ -10,12 +10,9 @@ export const Layout = ({ children }) => {
                     <Sidebar />
                 </div>
 
-                
-                    <main className='flex-grow'>
-                        {children}
-                    </main>
-                
-
+                <main className='flex-grow'>
+                    {children}
+                </main>
 
             </div>
         </div>

@@ -1,6 +1,8 @@
 import { Layout } from '../components/Layout'
 
 export const Profile = () => {
+  
+
   return (
     <Layout>
       <div className="p-4">

@@ -28,7 +28,7 @@ export const Payments = () => {
 
               <div className="mb-4 border-b border-gray-200 py-4">
                 <h2 className="text-xl font-bold">Balance Information</h2>
-                <p>Month bill: ksh: 20,00</p>
+                <p>Month bill: ksh: 20,000</p>
                 <p>Rent Arrears as at today: ksh: 20,000</p>
               </div>
 
