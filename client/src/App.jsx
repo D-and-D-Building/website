@@ -11,6 +11,8 @@ import { Notification } from './pages/Notification';
 import { Signin } from './pages/Signin';
 import { Signup } from './pages/Signup';
 import { ForgotPassword } from './pages/ForgotPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -19,7 +21,7 @@ function App() {
     <SidebarContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
       <Router>
         <Routes>
-        <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
@@ -31,6 +33,20 @@ function App() {
           <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+/>
     </SidebarContext.Provider>
   )
 }
