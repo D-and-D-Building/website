@@ -2,6 +2,11 @@ import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import OAuth from "../components/OAuth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { db } from "../firebase";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +18,8 @@ export const Signup = () => {
 
     const { name, email, password } = formData;
 
+    const navigate = useNavigate();
+
     function onChange(e) {
         setFormData((prevState) => ({
             ...prevState,
@@ -21,17 +28,40 @@ export const Signup = () => {
         );
     }
 
+    async function onSubmit(e) {
+        e.preventDefault();
+
+        try {
+            const auth = getAuth();
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+            updateProfile(auth.currentUser, {
+                displayName: name,
+            })
+            const user = userCredential.user;
+            const formDataCopy = { ...formData };
+            delete formDataCopy.password;
+            formDataCopy.timestamp = serverTimestamp();
+
+            await setDoc(doc(db, "users", user.uid), formDataCopy);
+            toast.success("Account created successfully")
+            navigate("/home");
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+
     return (
         <section>
             <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
 
             <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
-                <div className="md:w-[67%] lg:w-[50] mb-12 md:mb-6">
+                <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
                     <img src="https://images.unsplash.com/photo-1601564892953-c7f49d311c28?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJlbnRhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Rental" className="w-full rounded-2xl" />
                 </div>
 
                 <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-                    <form >
+                    <form onSubmit={onSubmit}>
                         <input type="text" id="name" value={name} onChange={onChange} placeholder="Full Name" className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out" />
 
                         <input type="email" id="email" value={email} onChange={onChange} placeholder="Email Address" className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out" />
@@ -62,7 +92,7 @@ export const Signup = () => {
                             <p className="text-center font-semibold mx-4">OR</p>
                         </div>
 
-                        <OAuth/>
+                        <OAuth />
                     </form>
                 </div>
             </div>
