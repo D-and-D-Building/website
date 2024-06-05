@@ -9,6 +9,8 @@ import { useState } from 'react';
 import { LandingPage } from './pages/LandingPage';
 import { Notification } from './pages/Notification';
 import { Signin } from './pages/Signin';
+import { Signup } from './pages/Signup';
+import { ForgotPassword } from './pages/ForgotPassword';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/sign-in" element={<Signin />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/notifications/:id" element={<Notification />} />
