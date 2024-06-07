@@ -1,25 +1,49 @@
+import { useState } from 'react'
 import { Layout } from '../components/Layout'
+import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 export const Profile = () => {
-  
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: auth.currentUser.displayName,
+    email: auth.currentUser.email,
+  })
+
+  const { name, email } = formData;
+
+  function onLogout() {
+    auth.signOut()
+    navigate("/")
+  }
 
   return (
     <Layout>
-      <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Profile</h1>
 
-        <div className="mb-4">
-          <h2 className="text-xl font-bold">Personal Information</h2>
-          <p className="text-gray-700">Name: John Doe</p>
-          <p className="text-gray-700">Email: johndoe@example.com</p>
-          <p className="text-gray-700">Mobile number: 0712345678</p>
-          <p className="text-gray-700">Tenant since: January 2022</p>
+      <section className='max-w-6xl mx-auto flex justify-center items-center flex-col'>
+        <h1 className='text-3xl text-center mt-6 font-bold'>My Profile</h1>
+
+        <div className="w-full md:w-[50%] mt-6 px-3">
+          <form >
+            <input type="text" id='name' value={name} disabled className='mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition ease-in-out ' />
+
+            <input type="email" id='email' value={email} disabled className='mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition ease-in-out ' />
+
+            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center transition ease-in-out duration-200">
+                Edit Profile
+              </button>
+
+              <button onClick={onLogout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition ease-in-out duration-200">
+                Sign Out
+              </button>
+            </div>
+          </form>
         </div>
+      </section>
 
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Edit Profile
-        </button>
-      </div>
+
     </Layout>
   )
 }
