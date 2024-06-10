@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Header } from '../components/Header';
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const Properties = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [properties, setProperties] = useState([]);
 
+    const navigate = useNavigate();
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();
@@ -16,6 +18,10 @@ const Properties = () => {
 
     function handleRowClick(property) {
         console.log(property);
+    }
+
+    function handleAddProperty(){
+        navigate("/add-property")
     }
 
     const totalRentalIncome = properties.reduce((total, property) => total + property.rentalIncome, 0);
@@ -30,10 +36,7 @@ const Properties = () => {
 
                 <h1 className="text-3xl mt-6 font-bold">Rental Properties</h1>
 
-                
-
                 <div className="flex flex-wrap justify-between w-full my-7">
-
                     <form onSubmit={handleSearchSubmit}>
                         <input
                             type="text"
@@ -45,7 +48,7 @@ const Properties = () => {
                         <button type="submit" className='mx-3'><FaSearch /></button>
                     </form>
 
-                    <button className="bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800">Add Property</button>
+                    <button onClick={handleAddProperty} className="bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800">Add Property</button>
                 </div>
 
                 <div className="flex justify-around mt-6">
