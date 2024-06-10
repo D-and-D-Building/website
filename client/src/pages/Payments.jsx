@@ -6,7 +6,7 @@ export const Payments = () => {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    // Fetch payments from your API here and update the state
+    // Fetch payments from  API here and update the state
     // For now, we'll use a static array of payments
     setPayments([
       { id: 1, date: '2022-01-01', amount: 1000, method: 'Mpesa' },

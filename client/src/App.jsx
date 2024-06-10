@@ -1,7 +1,6 @@
 import SidebarContext from './sidebarContext';
 import { Home } from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Logout } from './pages/Logout'
 import { Notifications } from './pages/Notifications'
 import { Payments } from './pages/Payments'
 import { Profile } from './pages/Profile'
@@ -14,6 +13,7 @@ import { ForgotPassword } from './pages/ForgotPassword';
 import PrivateRoute from './components/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Properties from './pages/Properties';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -27,15 +27,15 @@ function App() {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          
+
           <Route path='/profile' element={<PrivateRoute/>}>
           <Route path="/profile" element={<Profile />} />
           </Route>
           
+          <Route path="/properties" element={<Properties />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/notifications/:id" element={<Notification />} />
           <Route path="/payments" element={<Payments />} />
-          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
 

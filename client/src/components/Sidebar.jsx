@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import SidebarContext from "../sidebarContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faCreditCard, faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faCreditCard, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const Sidebar = () => {
   const { isSidebarOpen } = useContext(SidebarContext);
@@ -13,6 +13,10 @@ export const Sidebar = () => {
           <FontAwesomeIcon icon={faUser} />
           {isSidebarOpen && ' Profile'}
         </a>
+        <a href="/properties" className='block p-10'>
+        <FontAwesomeIcon icon="fa-solid fa-building" />
+          {isSidebarOpen && ' Properties'}
+        </a>
         <a href="/payments" className='block p-10'>
           <FontAwesomeIcon icon={faCreditCard} />
           {isSidebarOpen && ' Payments'}
@@ -20,10 +24,6 @@ export const Sidebar = () => {
         <a href="/notifications" className='block p-10'>
           <FontAwesomeIcon icon={faBell} />
           {isSidebarOpen && ' Notifications'}
-        </a>
-        <a href="/logout" className='block p-10'>
-          <FontAwesomeIcon icon={faSignOutAlt} />
-          {isSidebarOpen && ' Logout'}
         </a>
       </ul>
     </div>
