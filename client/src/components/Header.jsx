@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SidebarContext from '../sidebarContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell } from "@fortawesome/free-solid-svg-icons";
@@ -31,7 +31,7 @@ export const Header = () => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          Login/Profile
+          <Link to="/profile">Profile</Link>
         </NavLink>
 
 
